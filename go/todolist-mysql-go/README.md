@@ -58,14 +58,9 @@ Response :
 ```json 
 [
     {
-        "ID": 1,
-        "Description": "test",
-        "Completed": false
-    },
-    {
-        "ID": 2,
-        "Description": "todo ke 2",
-        "Completed": false
+        "ID": 3,
+        "Description": "testing",
+        "Completed": true
     }
 ]
 ```
@@ -84,12 +79,18 @@ Response :
 ```json 
 [
     {
-        "ID": 3,
-        "Description": "testing",
-        "Completed": true
+        "ID": 1,
+        "Description": "test",
+        "Completed": false
+    },
+    {
+        "ID": 2,
+        "Description": "todo ke 2",
+        "Completed": false
     }
 ]
 ```
+
 
 ## Create Todo
 
