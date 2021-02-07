@@ -5,11 +5,14 @@ Go major focus was on simplicity, scale, speed, and reliability. That's also my 
 - [todolist-mysql-go]()
   - How to connect Golang to mysql
   - How to use ORM in Golang with GORM
+  - How to write basic Go HTTP server using Gorilla Mux
+  - How to add CORS headers in Gorilla Mux
 
 # What I wish to learn
 - [ ] Go unittest & integration testing
-- [ ] Goroutine for concurrency applicatoin
-- [ ] ORM connection with relational DBs (MySQL & PostgreSQL)
+- [ ] Goroutine for concurrency application
+- [x] ORM connection with relational DBs (MySQL & PostgreSQL)
+- [ ] ORM connection with non-relational DBs (MongoDB , etc)
 - [ ] Write commandline apps
 - [ ] Write a RESTfull API with auth
 - [ ] Implement a swagger with golang
