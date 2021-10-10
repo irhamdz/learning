@@ -1,0 +1,3 @@
+graft flask_send_mail/static
+graft flask_send_mail/templates
+global-exclude *.pyc

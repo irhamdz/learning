@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Recipient{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/recipient.css">
+{% endblock %}
+
+{% block page_name %}Recipient Create/Update/Delete Page{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <input id="url_person_id" type="hidden" value="{{ person_id }}"/>
+        <div class="section editor">
+            <div style="padding: 5px">
+                <span>Recipient ID:</span>
+                <span id="person_id"></span>
+            </div>
+            <label for="name" style="padding: 5px">Name
+                <input id="name" type="text" name="id"/>
+            </label>
+            <br/>
+            <label for="email" style="padding: 5px">Email
+                <input id="email" type="email" name="email">
+            </label>
+            <br/>
+            <button id="create" type="submit">Create</button>
+            <button id="update">Update</button>
+            <button id="delete">Delete</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="people">
+            <table>
+                <caption>Recipient Lists</caption>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </div>
+    <div class="error">
+    </div>
+
+    <!-- Handlebars script tag entry -->
+    {% raw %}
+    <script id="people-table-template" type="text/x-handlebars-template">
+        <tbody>
+        {{#each people}}
+        <tr data-person_id="{{id}}" data-name="{{name}}" data-email="{{email}}">
+            <td class="id">{{id}}</td>
+            <td class="name">{{name}}</td>
+            <td class="email">{{email}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </script>
+    {% endraw %}
+
+{% endblock %}
+
+{% block javascript %}
+    {{ super() }}
+    <script src="/static/js/recipient.js"></script>
+{% endblock %}
