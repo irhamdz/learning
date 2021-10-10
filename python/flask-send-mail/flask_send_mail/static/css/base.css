@@ -1,0 +1,91 @@
+/*
+ * This is the parent CSS stylesheet that all pages get basic styling from
+ */
+
+/*@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);*/
+
+/* Roboto regular */
+
+@font-face {
+    font-family: "Roboto";
+    src: url("/static/font/Roboto/Roboto-Regular.eot");
+    src: url("/static/font/Roboto/Roboto-Regular.eot?#iefix") format('embedded-opentype'),
+         url("/static/font/Roboto/Roboto-Regular.woff2") format('woff2'),
+         url("/static/font/Roboto/Roboto-Regular.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Roboto italic */
+
+@font-face {
+    font-family: "Roboto";
+    src: url('/static/font/Roboto/Roboto-Italic.eot');
+    src: url('/static/font/Roboto/Roboto-Italic.eot?#iefix') format('embedded-opentype'),
+         url('/static/font/Roboto/Roboto-Italic.woff2') format('woff2'),
+         url('/static/font/Roboto/Roboto-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Roboto bold */
+
+@font-face {
+    font-family: "Roboto";
+    src: url('/static/font/Roboto/Roboto-Bold.eot');
+    src: url('/static/font/Roboto/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
+         url('/static/font/Roboto/Roboto-Bold.woff2') format('woff2'),
+         url('/static/font/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body, .ui-btn {
+    font-family: "Roboto", "sans-serif";
+    font-style: normal;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    padding: 15px 10px 15px 10px;
+    border-bottom: 2px solid darkgrey;
+    background-color: whitesmoke;
+}
+
+.navigation a {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    text: black;
+    background-color: lightskyblue;
+}
+
+.navigation .page_name {
+    flex-grow: 2;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navigation a:hover {
+    background-color: deepskyblue;
+}
+
+.container {
+    padding: 10px;
+}
+
+.error {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    background-color: #fbb;
+    visibility: hidden;
+}

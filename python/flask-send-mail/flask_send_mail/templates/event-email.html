@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Event Email{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/event-email.css">
+{% endblock %}
+
+{% block page_name %}Event Email Create/Update/Delete Page{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <input id="url_event_email_id" type="hidden" value="{{ event_email_id }}"/>
+        <div class="section editor">
+            <div style="padding: 5px">
+                <span>Event Email ID:</span>
+                <span id="event_email_id"></span>
+            </div>
+            <label for="event-id" style="padding: 5px">Event ID
+                <input id="event-id" type="number" name="event-id" style="margin-left: 40px"/>
+            </label>
+            <br/>
+            <label for="email-subject" style="padding: 5px">Email Subject
+                <input id="email-subject" type="text" name="email-subject">
+            </label>
+            <br/>
+            <label for="email-content" style="padding: 5px">Email Content
+                <textarea id="email-content" rows="5"></textarea>
+            </label>
+            <br/>
+            <label for="timestamp" style="padding: 5px">Timestamp
+                <input type="datetime-local" id="timestamp" name="timestamp" style="margin-left: 15px">
+            </label>
+            <br/>
+            <label for="recipients" style="padding: 5px">Recipient Ids
+                <textarea id="recipients" rows="3"
+                          placeholder="Input the recipient ids, separated by a comma. eg: 1, 2, .."></textarea>
+            </label>
+            <br/>
+            <button id="create" type="submit">Create</button>
+            <button id="update">Update</button>
+            <button id="delete">Delete</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="people">
+            <table>
+                <caption>Event Email Lists</caption>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Event ID</th>
+                    <th>Email Subject</th>
+                    <th>Email Content</th>
+                    <th>Schedule to send</th>
+                    <th>Recipients</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </div>
+    <div class="error">
+    </div>
+
+    <!-- Handlebars script tag entry -->
+    {% raw %}
+    <script id="people-table-template" type="text/x-handlebars-template">
+        <tbody>
+        {{#each event_email}}
+        <tr data-event-email-id="{{id}}" data-event-id="{{event_id}}" data-email-subject="{{email_subject}}"
+            data-email-content="{{ email_content }}" data-timestamp="{{ timestamp }}"
+            data-recipients="{{#testHelper recipients}}{{id}}{{/testHelper}}">
+            <td class="id">{{ id }}</td>
+            <td class="event">{{ event_id }}</td>
+            <td class="center">{{ email_subject }}</td>
+            <td class="center">{{ email_content }}</td>
+            <td class="timestamp">{{formatTimestamp timestamp}}</td>
+            <td class="center">
+                {{#each recipients}}
+                <li class="pad-5">{{ name }} - ({{ email }})</li>
+                {{/each}}
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </script>
+    {% endraw %}
+
+{% endblock %}
+
+{% block javascript %}
+    {{ super() }}
+    <script src="/static/js/event-email.js"></script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/home.css">
+{% endblock %}
+
+{% block page_name %}Event Email Application{% endblock %}
+
+{% block body %}
+<div class="blog">
+    <table>
+        <caption>Event Email Lists</caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Event ID</th>
+                <th>Email Subject</th>
+                <th>Email Content</th>
+                <th>Schedule to send</th>
+                <th>Recipients</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div class="error">
+</div>
+
+<!-- Handlebars script tag entry -->
+{% raw %}
+<script id="table-template" type="text/x-handlebars-template">
+    <tbody>
+        {{#each data}}
+        <tr data-person_id="{{person.person_id}}" data-note_id="{{note_id}}">
+            <td class="id">{{ id }}</td>
+            <td class="event">{{ event_id }}</td>
+            <td class="center">{{ email_subject }}</td>
+            <td class="center">{{ email_content }}</td>
+            <td class="timestamp">{{formatTimestamp timestamp}}</td>
+            <td class="center">
+                {{#each recipients}}
+                    <li class="pad-5">{{ name }} - ({{ email }})</li>
+                {{/each}}
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</script>
+{% endraw %}
+
+{% endblock %}
+
+{% block javascript %}
+{{ super() }}
+<script src="/static/js/home.js"></script>
+{% endblock %}

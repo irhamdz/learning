@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+        <title>{% block title %}{% endblock %} Page</title>
+        <link rel="stylesheet" href="/static/css/normalize.min.css">
+        <link rel="stylesheet" href="/static/css/base.css">
+        {#            <script#}
+        {#              src="http://code.jquery.com/jquery-3.3.1.min.js"#}
+        {#              integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="#}
+        {#              crossorigin="anonymous">#}
+        {#            </script>#}
+        <script src="/static/js/jquery-3.6.0.min.js"></script>
+        <script src="/static/js/handlebars.min-v4.7.7.js"></script>
+        <script src="/static/js/moment.min.js"></script>
+    {% endblock %}
+</head>
+<body>
+<div class="navigation">
+    <span class="buttons">
+        <a href="/">Home</a>
+        <a href="/event-email">Event Email</a>
+        <a href="/recipient">Recipient</a>
+    </span>
+    <span class="page_name">
+        <div>{% block page_name %}{% endblock %}</div>
+    </span>
+    <span class="spacer"></span>
+</div>
+
+{% block body %}
+{% endblock %}
+</body>
+
+{% block javascript %}
+    <script>
+        Handlebars.registerHelper('formatTimestamp', function (timestamp) {
+            "use strict";
+
+            let mt = moment(timestamp, moment.ISO_8601);
+            return mt.format('DD MMMM YYYY, h:mm:ss a');
+        });
+
+        Handlebars.registerHelper('testHelper', (recipients) => {
+            let recipient_ids = []
+            recipients.forEach((item) => {
+                recipient_ids.push(item.id);
+            });
+            return recipient_ids.join(",");
+        });
+    </script>
+{% endblock %}
+
+</html>
